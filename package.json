@@ -1,14 +1,22 @@
 {
   "name": "a2ln-node",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Library to act as server and receive notifications from a2ln-app",
   "type": "module",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "homepage": "https://github.com/ckcr4lyf/a2ln-node",
+  "bugs": {
+    "url": "https://github.com/ckcr4lyf/a2ln-node/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ckcr4lyf/a2ln-node.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Raghu Saxena",
+  "license": "GPL v3",
   "dependencies": {
     "zeromq": "^6.0.0-beta.16"
   }
