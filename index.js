@@ -1,23 +1,40 @@
 import zmq from 'zeromq';
 
-const keys = zmq.curveKeyPair();
+const keys = {
+    publicKey: 'NrUa/J@7SEiev!<@y#bA::*2Uan:z+hV8dI&xcSX',
+    secretKey: 'DZ74HqyFA#9(2<?w8o%NR+Z#1L?x*Dxz{(Y6%+=F'
+}
 
-const sockNotif = new zmq.Reply({
+// const zapHandler = new zmq.Reply();
+// await zapHandler.bind("inproc://zeromq.zap.01");
+
+const sockNotif = new zmq.Pull({
     curveServer: true,
     curveSecretKey: keys.secretKey,
-    curveServerKey: keys.publicKey,
+    curvePublicKey: keys.publicKey,
+    // zapDomain: "inproc://zeromq.zap.01",
+    // zapEnforceDomain: false,
 });
 
 const sockPair = new zmq.Reply();
 
-await sockNotif.bind("tcp://0.0.0.0:23045")
+await sockNotif.bind("tcp://0.0.0.0:6969")
 await sockPair.bind("tcp://0.0.0.0:4444");
 
-for await (const [msg1, msg2] of sockPair) {
-    console.log(msg1.toString(), msg2.toString());
-    await sockPair.send(["23045", keys.publicKey]);
-}
+(async() => {
+    for await (const [msg1, msg2] of sockPair) {
+        console.log(msg1.toString(), msg2.toString());
+        await sockPair.send([Buffer.from("6969"), Buffer.from(keys.publicKey)]);
+    }
+})();
 
-for await (const [msg] of sockNotif){
-    console.log(msg);
-}
+(async() => {
+    while (true){
+        const msg = await sockNotif.receive();
+        if (msg.length === 4){
+            console.log(`[IMAGE] App: ${msg[0].toString()}, Title: ${msg[1].toString()}, Body: ${msg[2].toString()}`)
+        } else {
+            console.log(`App: ${msg[0].toString()}, Title: ${msg[1].toString()}, Body: ${msg[2].toString()}`)
+        }
+    }
+})();
