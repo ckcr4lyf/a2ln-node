@@ -11,7 +11,7 @@
  * @property {string} port - the port for the server to listen on
  * @property {CurveKeys | undefined} keys - the predefined server keys. If not provided, they will be generated.
  */
-export class NotificationServer {
+export class NotificationServer extends EventEmitter {
     /**
      * @param {NotificationServerProperties} options - Options for the notification server
      */
@@ -50,4 +50,5 @@ export type NotificationServerProperties = {
      */
     keys: CurveKeys | undefined;
 };
+import { EventEmitter } from "events";
 //# sourceMappingURL=notificationServer.d.ts.map

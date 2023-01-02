@@ -6,7 +6,7 @@
  * @property {string} notificationPublicKey - public key of the notification server
  * @property {string} notificationPort - port the notification server is listening on
  */
-export class PairingServer {
+export class PairingServer extends EventEmitter {
     /**
      * @param {PairingServerProperties} options - Options for the pairing server
      */
@@ -45,4 +45,5 @@ export type PairingServerProperties = {
      */
     notificationPort: string;
 };
+import { EventEmitter } from "events";
 //# sourceMappingURL=pairingServer.d.ts.map

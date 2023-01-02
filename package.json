@@ -3,12 +3,8 @@
   "version": "0.0.1",
   "description": "Library to act as server and receive notifications from a2ln-app",
   "type": "module",
-  "exports": {
-    ".": {
-      "default": "./lib/index.js",
-      "types": "./lib/index.d.ts"
-    }
-  },
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "homepage": "https://github.com/ckcr4lyf/a2ln-node",
   "bugs": {
     "url": "https://github.com/ckcr4lyf/a2ln-node/issues"
@@ -18,6 +14,7 @@
     "url": "git://github.com/ckcr4lyf/a2ln-node.git"
   },
   "scripts": {
+    "build": "rm -rf ./lib/*.ts && tsc -p .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Raghu Saxena",
@@ -26,6 +23,7 @@
     "zeromq": "^6.0.0-beta.16"
   },
   "devDependencies": {
+    "@types/node": "^18.11.18",
     "typescript": "^4.9.4"
   }
 }
