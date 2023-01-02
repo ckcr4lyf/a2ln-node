@@ -4,6 +4,11 @@
   "description": "Library to act as server and receive notifications from a2ln-app",
   "type": "module",
   "main": "./lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    }
+  },
   "homepage": "https://github.com/ckcr4lyf/a2ln-node",
   "bugs": {
     "url": "https://github.com/ckcr4lyf/a2ln-node/issues"
