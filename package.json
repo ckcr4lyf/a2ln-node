@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "Library to act as server and receive notifications from a2ln-app",
   "type": "module",
-  "main": "./lib/index.js",
   "exports": {
     ".": {
       "default": "./lib/index.js"
