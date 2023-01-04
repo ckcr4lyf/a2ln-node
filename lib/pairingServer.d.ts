@@ -27,15 +27,10 @@ export class PairingServer extends EventEmitter {
      */
     start(): void;
     _listen(): Promise<void>;
-    /**
-     * @param {'pair'} event
-     * @param {(pairData: { ip: string, publicKey: string }) => void} listener
-     * @returns {this}
-     */
     on(event: 'pair', listener: (pairData: {
         ip: string;
         publicKey: string;
-    }) => void): this;
+    }) => void): any;
 }
 export type PairingServerProperties = {
     /**
