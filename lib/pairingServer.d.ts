@@ -22,10 +22,20 @@ export class PairingServer extends EventEmitter {
     /**
      * start() will begint o listen for messages on the socket for pairing requests
      * and accept ANY/ALL speicication-valid pairing requests (NO CLIENT AUTH!!!)
+     *
      * @returns void
      */
     start(): void;
     _listen(): Promise<void>;
+    /**
+     * @param {'pair'} event
+     * @param {(pairData: { ip: string, publicKey: string }) => void} listener
+     * @returns {this}
+     */
+    on(event: 'pair', listener: (pairData: {
+        ip: string;
+        publicKey: string;
+    }) => void): this;
 }
 export type PairingServerProperties = {
     /**

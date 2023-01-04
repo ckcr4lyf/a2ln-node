@@ -1,5 +1,5 @@
-import { PairingServer } from './lib/pairingServer.js';
-import { NotificationServer } from './lib/notificationServer.js';
+import { PairingServer } from '../lib/pairingServer.js';
+import { NotificationServer } from '../lib/notificationServer.js';
 
 const keys = {
     publicKey: 'NrUa/J@7SEiev!<@y#bA::*2Uan:z+hV8dI&xcSX',
