@@ -23,3 +23,11 @@ await sp2.bind();
 await sn2.bind();
 sp2.start();
 sn2.start();
+
+sp2.on('pair', pairData => {
+    console.log('got pairing event', pairData);
+});
+
+sn2.on('imageNotification', inData => {
+    console.log(`got image notification! app: ${inData.app}, title: ${inData.title}, body: ${inData.body}`);
+})
