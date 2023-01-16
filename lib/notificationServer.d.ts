@@ -31,19 +31,21 @@ export class NotificationServer extends EventEmitter {
      */
     start(): void;
     _listen(): Promise<void>;
-    /**
-     *
-     * @param {'imageNotification'} event
-     * @param {(imageNotificationData: { app: string, title: string, body: string, image: Buffer }) => void} listener
-     * @returns {this}
-     */
-    on(event: 'imageNotification', listener: (imageNotificationData: {
-        app: string;
-        title: string;
-        body: string;
-        image: Buffer;
-    }) => void): this;
+
+    on(event: 'textNotification', listener: (textNotificationData: textNotificationData) => void): this;
+    on(event: 'imageNotification', listener: (imageNotificationData: imageNotificationData) => void): this;
 }
+
+type textNotificationData = {
+    app: string;
+    title: string;
+    body: string;
+}
+
+type imageNotificationData = textNotificationData & {
+    image: Buffer
+}
+
 export type CurveKeys = {
     publicKey: string;
     secretKey: string;

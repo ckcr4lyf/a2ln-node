@@ -31,3 +31,5 @@ sp2.on('pair', pairData => {
 sn2.on('imageNotification', inData => {
     console.log(`got image notification! app: ${inData.app}, title: ${inData.title}, body: ${inData.body}`);
 })
+
+sn2.on('t')
