@@ -1,7 +1,7 @@
 {
     "include": ["lib/**/*.js"],
-    "exclude": ["lib/**/*.d.ts"],
     "compilerOptions": {
+        "outDir": "types/",
         // Tells TypeScript to read JS files, as
         // normally they are ignored as source files
         "allowJs": true,
@@ -10,8 +10,5 @@
         // This compiler run should
         // only output d.ts files
         "emitDeclarationOnly": true,
-        // go to js file when using IDE functions like
-        // "Go to Definition" in VSCode
-        "declarationMap": true
     }
 }
