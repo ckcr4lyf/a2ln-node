@@ -31,7 +31,21 @@ export class NotificationServer extends EventEmitter {
      */
     start(): void;
     _listen(): Promise<void>;
+
+    on(event: 'textNotification', listener: (textNotificationData: textNotificationData) => void): this;
+    on(event: 'imageNotification', listener: (imageNotificationData: imageNotificationData) => void): this;
 }
+
+type textNotificationData = {
+    app: string;
+    title: string;
+    body: string;
+}
+
+type imageNotificationData = textNotificationData & {
+    image: Buffer
+}
+
 export type CurveKeys = {
     publicKey: string;
     secretKey: string;
@@ -51,4 +65,3 @@ export type NotificationServerProperties = {
     keys: CurveKeys | undefined;
 };
 import { EventEmitter } from "events";
-//# sourceMappingURL=notificationServer.d.ts.map

@@ -27,16 +27,15 @@ export class PairingServer extends EventEmitter {
      */
     start(): void;
     _listen(): Promise<void>;
-    /**
-     * @param {'pair'} event
-     * @param {(pairData: { ip: string, publicKey: string }) => void} listener
-     * @returns {this}
-     */
-    on(event: 'pair', listener: (pairData: {
-        ip: string;
-        publicKey: string;
-    }) => void): this;
+    
+    on(event: 'pair', listener: (pairData: pairData) => void): this;
 }
+
+type pairData = {
+    ip: string;
+    publicKey: string;
+}
+
 export type PairingServerProperties = {
     /**
      * - the address to bind the server to
@@ -56,4 +55,3 @@ export type PairingServerProperties = {
     notificationPort: string;
 };
 import { EventEmitter } from "events";
-//# sourceMappingURL=pairingServer.d.ts.map
